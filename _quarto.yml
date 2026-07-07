@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Statistics Inquiry Hub"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: resources.qmd
+        text: Resources
+      - href: interactive-plots.qmd
+        text: Interactive Plots
+      - href: analysis.qmd
+        text: Analysis
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

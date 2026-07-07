@@ -1,0 +1,38 @@
+---
+title: "Statistics Inquiry Hub"
+---
+
+Welcome to a Quarto website for statistical inquiry using **R**, interactive visualisations, and practical analysis examples.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+## Resources
+
+Find notes, links, and prompts to help plan a statistical investigation.
+
+[Browse resources](resources.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-4}
+## Interactive plots
+
+Explore a live scatter plot to see how changing filters reveals new patterns in data.
+
+[Open the interactive plots](interactive-plots.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-4}
+## Analysis examples
+
+Review a simple R workflow that summarises data, builds a model, and explains findings.
+
+[Read the analysis](analysis.qmd)
+:::
+:::
+
+## What you can do here
+
+- plan a statistical inquiry question
+- compare distributions and relationships in data
+- explore interactive graphics
+- see worked R examples that can be adapted for your own investigation

@@ -1,0 +1,37 @@
+---
+title: "Analysis"
+---
+
+This example uses built-in R data to model how fuel efficiency changes with weight and horsepower.
+
+## Summarise the data
+
+```{r}
+summary(mtcars[, c("mpg", "wt", "hp")])
+```
+
+## Visualise the relationship
+
+```{r}
+plot(
+  mtcars$wt,
+  mtcars$mpg,
+  pch = 19,
+  col = "steelblue",
+  xlab = "Weight (1000 lbs)",
+  ylab = "Miles per gallon",
+  main = "Weight compared with fuel efficiency"
+)
+abline(lm(mpg ~ wt, data = mtcars), col = "firebrick", lwd = 2)
+```
+
+## Fit a simple model
+
+```{r}
+fuel_model <- lm(mpg ~ wt + hp, data = mtcars)
+coef(summary(fuel_model))
+```
+
+## Interpreting the output
+
+In this example, heavier cars tend to have lower fuel efficiency. Adding horsepower to the model helps explain extra variation, which gives a stronger evidence-based conclusion than relying on a graph alone.
