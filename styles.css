@@ -1,0 +1,15 @@
+.grid h2 {
+  margin-top: 0.5rem;
+}
+
+#mtcars-plot {
+  margin-top: 1rem;
+  border: 1px solid #d9e2ef;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+#cyl-filter {
+  margin-top: 0.5rem;
+  max-width: 220px;
+}

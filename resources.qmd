@@ -1,0 +1,30 @@
+---
+title: "Resources"
+---
+
+## Inquiry checklist
+
+Use this checklist when planning a statistical investigation:
+
+1. Write a clear investigative question.
+2. Decide which variables you need and how they will be measured.
+3. Predict what patterns or relationships you expect to see.
+4. Choose graphs and summary statistics that match the question.
+5. Explain what the evidence suggests in context.
+
+## Helpful resources
+
+- **Quarto documentation** for publishing reports and websites: <https://quarto.org>
+- **R for Data Science** for wrangling, plotting, and communicating data: <https://r4ds.had.co.nz>
+- **R Graph Gallery** for inspiration when selecting graphs: <https://r-graph-gallery.com>
+- **NCEA statistical inquiry exemplars** from your teacher or school LMS for assessment-specific guidance
+
+## Suggested workflow in R
+
+```r
+data <- mtcars
+summary(data)
+plot(data$wt, data$mpg)
+```
+
+Start with summary statistics, then move to visualisations and written conclusions.

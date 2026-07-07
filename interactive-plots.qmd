@@ -1,0 +1,70 @@
+---
+title: "Interactive Plots"
+---
+
+This page includes a simple interactive scatter plot so you can explore how vehicle weight and fuel efficiency change across cylinder groups.
+
+<label for="cyl-filter"><strong>Filter by cylinders:</strong></label>
+<select id="cyl-filter">
+  <option value="all">All cars</option>
+  <option value="4">4 cylinders</option>
+  <option value="6">6 cylinders</option>
+  <option value="8">8 cylinders</option>
+</select>
+
+<div id="mtcars-plot" style="height: 420px;"></div>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script>
+const cars = [
+  { wt: 2.62, mpg: 21.0, cyl: 6, label: "Mazda RX4" },
+  { wt: 2.875, mpg: 21.0, cyl: 6, label: "Mazda RX4 Wag" },
+  { wt: 2.32, mpg: 22.8, cyl: 4, label: "Datsun 710" },
+  { wt: 3.215, mpg: 21.4, cyl: 6, label: "Hornet 4 Drive" },
+  { wt: 3.44, mpg: 18.7, cyl: 8, label: "Hornet Sportabout" },
+  { wt: 3.46, mpg: 18.1, cyl: 6, label: "Valiant" },
+  { wt: 3.57, mpg: 14.3, cyl: 8, label: "Duster 360" },
+  { wt: 3.19, mpg: 24.4, cyl: 4, label: "Merc 240D" },
+  { wt: 3.15, mpg: 22.8, cyl: 4, label: "Merc 230" },
+  { wt: 3.44, mpg: 19.2, cyl: 6, label: "Merc 280" },
+  { wt: 3.44, mpg: 17.8, cyl: 6, label: "Merc 280C" },
+  { wt: 4.07, mpg: 16.4, cyl: 8, label: "Merc 450SE" }
+];
+
+function renderPlot(filterValue) {
+  const filtered = filterValue === "all"
+    ? cars
+    : cars.filter((car) => String(car.cyl) === filterValue);
+
+  Plotly.newPlot("mtcars-plot", [{
+    x: filtered.map((car) => car.wt),
+    y: filtered.map((car) => car.mpg),
+    text: filtered.map((car) => `${car.label} (${car.cyl} cyl)`),
+    mode: "markers",
+    type: "scatter",
+    marker: {
+      size: 12,
+      color: filtered.map((car) => car.cyl),
+      colorscale: "Viridis"
+    },
+    hovertemplate: "%{text}<br>Weight: %{x}<br>MPG: %{y}<extra></extra>"
+  }], {
+    title: "Fuel efficiency compared with vehicle weight",
+    xaxis: { title: "Weight (1000 lbs)" },
+    yaxis: { title: "Miles per gallon" },
+    margin: { t: 60, r: 20, b: 60, l: 60 }
+  }, { responsive: true });
+}
+
+document.getElementById("cyl-filter").addEventListener("change", (event) => {
+  renderPlot(event.target.value);
+});
+
+renderPlot("all");
+</script>
+
+## How this supports inquiry
+
+- compare clusters for different groups
+- look for association between two numerical variables
+- discuss unusual values and whether they affect conclusions
